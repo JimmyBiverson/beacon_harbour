@@ -10,6 +10,7 @@ return [
         'involvement' => ['Get involved', 'Share your time, open a door at work or help sustain youth outreach in Greater Boston.'],
         'contact' => ['Contact us', 'Ask about youth programs, introduce a community partner or speak with Beacon Harbor about getting involved.'],
         'privacy' => ['Your privacy', 'How Beacon Harbor handles information you choose to share through this website.'],
+        'projects' => ['Our projects', 'Explore practical, youth-centered initiatives that build skills, strengthen connections and open new pathways across Greater Boston.'],
     ],
     'programs' => [
         'youth-empowerment' => ['Youth empowerment workshops', 'Life skills', 'learning', 'Practice finding your voice, setting a goal and making a plan with peers.', 'Start with a decision that matters to you. Break it into smaller steps, talk through the choices and practice explaining what you need. Group activities make room for listening as well as leading.', 'Communication · Goal setting · Leadership'],

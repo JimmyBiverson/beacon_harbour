@@ -31,6 +31,9 @@
     <body>
         <a class="skip" href="#main">Skip to content</a>
 
+        <canvas id="particle-field" aria-hidden="true"></canvas>
+        <div id="scroll-progress" aria-hidden="true"></div>
+
         @include('partials.site-header')
 
         <main id="main">

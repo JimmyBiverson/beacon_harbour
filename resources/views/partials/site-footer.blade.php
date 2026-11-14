@@ -7,7 +7,7 @@
             </div>
             <div>
                 <strong>Explore</strong>
-                @foreach(['programs' => 'Programs', 'community' => 'Where we work', 'involvement' => 'Giving & volunteering'] as $key => $label)
+                @foreach(['about' => 'About us', 'what-we-do' => 'What we do', 'projects' => 'Our projects', 'journal' => 'Blogs', 'contact' => 'Contact us'] as $key => $label)
                     <a href="{{ route($key) }}">{{ $label }}</a>
                 @endforeach
             </div>
