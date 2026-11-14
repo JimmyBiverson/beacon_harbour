@@ -194,7 +194,10 @@ if ('IntersectionObserver' in window && !prefersReducedMotion) {
             entry.target.classList.add('seen');
             observer.unobserve(entry.target);
         }
-    }), { threshold: 0.12 });
+    }), {
+        threshold: 0.16,
+        rootMargin: '0px 0px -56px 0px',
+    });
 
     document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
 }
