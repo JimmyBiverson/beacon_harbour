@@ -54,6 +54,12 @@ class WebsiteTest extends TestCase
             ->assertSee('Contact person: Sumaya')
             ->assertSee('We usually reply within a few days');
 
+        $this->get('/programs/career-pathways')
+            ->assertOk()
+            ->assertSee('Career development')
+            ->assertSee('Job readiness, resume building, and career exploration designed to open doors to real, sustainable opportunity.')
+            ->assertDontSee('Choose an interest, identify skills you already use');
+
         $this->get('/journal')->assertRedirect('/blog');
     }
 
