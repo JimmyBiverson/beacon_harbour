@@ -1,1 +1,1 @@
-<a class="brand" href="{{ route('home') }}" aria-label="Beacon Harbor home"><img src="{{ asset('images/emblem-400.webp') }}" alt="" width="48" height="48"><span>Beacon Harbor<small>Youth Outreach Initiative</small></span></a>
+<a class="brand" href="{{ route('home') }}" aria-label="Beacon Harbor home"><img src="{{ asset('images/beacon-harbor-logo.png') }}" alt="" width="48" height="48"><span>Beacon Harbor<small>Youth Outreach Initiative</small></span></a>

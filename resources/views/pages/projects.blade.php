@@ -1,29 +1,21 @@
-<section class="projects-intro reveal">
-    <span class="eyebrow">Our projects</span>
-    <h2>Small steps can open <em>new pathways.</em></h2>
-    <p>Our projects grow from the everyday priorities young people bring to us. Explore the focus areas below to see how practical learning, wellbeing and community connections come together in our work.</p>
-</section>
-
 <section class="wrap section-block">
     <div class="section-header reveal">
-        <span class="eyebrow">Current areas of focus</span>
-        <div class="split"><h2>Ideas made <em>practical.</em></h2></div>
-        <p class="section-lead">Each initiative is an invitation to learn and explore—not a one-size-fits-all path. Select a focus area to read more about what it can involve.</p>
+        <span class="eyebrow">Our projects</span>
+        <div class="split"><h2>Programs that create <em>opportunity.</em></h2></div>
+        <p class="section-lead">Our initiatives are designed to meet the real needs of young people across Greater Boston — today, and as our organization grows.</p>
     </div>
 
     <div class="project-grid">
-        @foreach(config('outreach.programs') as $slug => $project)
+        @foreach(config('outreach.projects') as $project)
             <article class="project-card reveal">
-                <a class="project-image" href="{{ route('program', $slug) }}">
+                <div class="project-image">
                     <x-photo :name="$project[2]"/>
                     <span class="project-number">0{{ $loop->iteration }}</span>
-                </a>
+                </div>
                 <div class="project-copy">
                     <span class="eyebrow">{{ $project[1] }}</span>
-                    <h3><a href="{{ route('program', $slug) }}">{{ $project[0] }}</a></h3>
+                    <h3>{{ $project[0] }}</h3>
                     <p>{{ $project[3] }}</p>
-                    <p>{{ $project[4] }}</p>
-                    <a class="textlink textlink-dark" href="{{ route('program', $slug) }}">Explore this focus <b>→</b></a>
                 </div>
             </article>
         @endforeach
@@ -33,13 +25,17 @@
 <section class="section-tint">
     <div class="wrap section-block">
         <div class="section-header reveal">
-            <span class="eyebrow">How projects take shape</span>
-            <div class="split"><h2>From listening to <em>learning together.</em></h2></div>
+            <span class="eyebrow">How we sustain this work</span>
+            <div class="split"><h2>Diversified, <em>responsible support.</em></h2></div>
+            <p class="section-lead">We're building a sustainable organization through a mix of community partnerships, individual giving, and institutional support — while staying focused on programs that create real impact.</p>
         </div>
         <div class="approach-cards project-process">
-            <article class="approach-card reveal"><span>01</span><h3>Hear what matters</h3><p>Begin with young people, families and local partners: what is working, and where would useful support make a difference?</p></article>
-            <article class="approach-card reveal"><span>02</span><h3>Make a shared plan</h3><p>Connect interests with a practical activity, a trusted relationship or a community resource that can support a next step.</p></article>
-            <article class="approach-card reveal"><span>03</span><h3>Reflect and adapt</h3><p>Stay open to feedback and adjust the approach as needs, goals and circumstances change.</p></article>
+            @foreach(config('outreach.funding_sources') as $source)
+                <article class="approach-card reveal">
+                    <span>0{{ $loop->iteration }}</span>
+                    <h3>{{ $source }}</h3>
+                </article>
+            @endforeach
         </div>
     </div>
 </section>

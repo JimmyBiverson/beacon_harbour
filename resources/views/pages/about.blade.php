@@ -1,44 +1,41 @@
 <section class="page-feature feature">
     <x-photo name="friends" :hero="true"/>
     <div>
-        <span class="eyebrow">Our purpose</span>
-        <h2>A place to steady.<br><em>A light to steer by.</em></h2>
-        <p>Beacon Harbor Youth Outreach Initiative, Inc. is a Quincy-based organization working alongside young people facing homelessness, housing instability or substance-use risk across Greater Boston.</p>
-        <p>A beacon offers direction; a harbor offers shelter. We bring those ideas together by making practical support easier to find and giving young people room to decide where they want to go.</p>
-        <a class="textlink textlink-dark" href="{{ route('programs') }}">Explore what we do <b>→</b></a>
+        <span class="eyebrow">Our name, our purpose</span>
+        <h2>What "Beacon Harbor" means to us</h2>
+        <p>A beacon represents direction and possibility — a fixed point of light for anyone finding their way through a hard season. A harbor represents safety, belonging, and support — a place to steady before setting out again.</p>
+        <p>Together, they describe what we're building for young people across Quincy and Greater Boston: a place to find encouragement, develop real skills, and move toward their future with confidence.</p>
+        <a class="textlink textlink-dark" href="{{ route('programs') }}">See Our Programs <b>→</b></a>
     </div>
 </section>
 
 <section class="story-section section-tint">
     <div class="wrap story-grid section-block">
         <div class="story-copy reveal">
-            <span class="eyebrow">Our story</span>
-            <h2>Rooted in Quincy.<br><em>Built around possibility.</em></h2>
-            <p>Housing instability can make ordinary decisions feel complicated. Finding a safe place to spend the day, keeping up with school or work, and knowing which person to ask for help can all require time and energy.</p>
-            <p>Beacon Harbor exists to make those next steps feel more manageable. We bring youth outreach, practical skill-building and community connection into one welcoming approach—one that sees each young person as a whole person, not a problem to solve.</p>
-            <p>Our work is shaped by the people who take part in it. Listening to young people, families and local partners helps us understand what is useful, where connections are missing and how support can meet people with respect.</p>
+            <span class="eyebrow">Our Vision</span>
+            <h2>Resources and support to <em>reach their potential.</em></h2>
+            <p>"That all youth exposed to homelessness and substance abuse receive the resources and support to reach their potential."</p>
         </div>
         <aside class="story-note reveal">
-            <span class="eyebrow">What our name means</span>
-            <blockquote>“Direction when you need it. A safe place to gather yourself.”</blockquote>
-            <p>Guidance matters most when people have the space and support to choose their own direction.</p>
+            <span class="eyebrow">What "Beacon Harbor" means to us</span>
+            <blockquote>"Every young person deserves a harbor — and a light to steer by."</blockquote>
+            <p>A beacon represents direction and possibility; a harbor represents safety, belonging, and support.</p>
         </aside>
     </div>
 </section>
 
 <section class="wrap section-block">
     <div class="section-header reveal">
-        <span class="eyebrow">How we work</span>
+        <span class="eyebrow">Our approach</span>
         <div class="split">
-            <h2>Listen first. <em>Build together.</em></h2>
+            <h2>Community-centered. <em>Youth-focused.</em></h2>
         </div>
-        <p class="section-lead">We aim to make support clear, practical and shaped by the young people and communities closest to the work.</p>
+        <p class="section-lead">We take a community-centered, youth-focused approach. Rather than assuming what young people need, we listen first — to youth, families, and the organizations already working in their corner — and build practical programs around the gaps we find together.</p>
     </div>
     <div class="approach-cards">
-        <article class="approach-card reveal"><span>01</span><h3>Start with voice</h3><p>We make time to hear what young people say matters to them and respect their choices about what they share.</p></article>
-        <article class="approach-card reveal"><span>02</span><h3>Make it practical</h3><p>We turn broad goals into useful skills, manageable steps and connections people can return to.</p></article>
-        <article class="approach-card reveal"><span>03</span><h3>Strengthen trusted ties</h3><p>We look for ways to work alongside caregivers, schools and community organizations already in a young person's corner.</p></article>
-        <article class="approach-card reveal"><span>04</span><h3>Learn as we go</h3><p>We stay open to feedback and use what we learn to make our approach more relevant and welcoming.</p></article>
+        <article class="approach-card reveal"><span>01</span><h3>Responsive</h3><p>Responsive to real, current needs rather than fixed assumptions.</p></article>
+        <article class="approach-card reveal"><span>02</span><h3>Inclusive</h3><p>Inclusive of youth regardless of race, religion, gender, or immigration background.</p></article>
+        <article class="approach-card reveal"><span>03</span><h3>Measurable outcomes</h3><p>Focused on measurable, positive outcomes for the young people we serve.</p></article>
     </div>
 </section>
 
@@ -50,12 +47,12 @@
         </div>
         <div class="tiles">
             @foreach([
-                'Empowerment' => 'Young people set goals that matter to them and gain tools to act on their choices.',
-                'Inclusion' => 'Every young person deserves dignity, regardless of race, religion, gender or background.',
-                'Integrity' => 'We are open about what we learn and accountable for how we work.',
-                'Compassion' => 'We listen before offering advice, and respect each person’s experience.',
-                'Collaboration' => 'We build on the trust that schools and community organizations have already earned.',
-                'Shared learning' => 'We share practical lessons so other communities can build on them.',
+                'Empowerment' => 'Young people should have the confidence, knowledge, and resources to shape their own futures.',
+                'Inclusion' => 'A welcoming environment where every young person is treated with dignity, regardless of race, religion, gender, or background.',
+                'Integrity & transparency' => 'We conduct our work with honesty and accountability, sharing our successes and lessons with the nonprofit community.',
+                'Compassion' => 'We approach youth, families, and community members with empathy, understanding, and respect.',
+                'Collaboration' => 'We work alongside other Boston organizations addressing homelessness — enhancing the ecosystem rather than competing within it.',
+                'Learning & sharing' => 'We commit to sharing what we learn so qualified partners can extend these services to other communities.',
             ] as $title => $text)
                 <article class="value-card reveal">
                     <span class="eyebrow">0{{ $loop->iteration }}</span>
@@ -70,13 +67,13 @@
 <section class="closing-cta">
     <div class="wrap closing-cta-inner reveal">
         <div>
-            <span class="eyebrow">Get to know the work</span>
-            <h2>There is more than one way to make a difference.</h2>
-            <p>Learn about our programs, share a community connection or start a conversation with our team.</p>
+            <span class="eyebrow">Get Involved</span>
+            <h2>Help us build a stronger harbor for Boston's youth.</h2>
+            <p>Every young person deserves a harbor — and a light to steer by.</p>
         </div>
         <div class="actions">
-            <a class="pill donate-cta" href="{{ route('programs') }}">What we do <b>↗</b></a>
-            <a class="textlink" href="{{ route('contact') }}">Contact us →</a>
+            <a class="pill donate-cta" href="{{ route('involvement') }}">Get Involved <b>↗</b></a>
+            <a class="textlink" href="{{ route('community') }}">Our Focus Area →</a>
         </div>
     </div>
 </section>

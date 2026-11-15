@@ -1,36 +1,89 @@
 <section class="page-feature feature">
     <x-photo name="pathways" :hero="true"/>
     <div>
-        <span class="eyebrow">Massachusetts / Greater Boston</span>
-        <h2>Local knowledge.<br><em>Wider support.</em></h2>
-        <p>A young person might turn first to a caregiver, a school counselor or a neighborhood group. We aim to connect trusted relationships so finding the next person to talk to feels easier.</p>
-        <p>Rooted in Quincy, we welcome conversations with schools, municipal agencies, youth organizations, faith groups, businesses and foundations across Greater Boston.</p>
-        <a class="pill donate-cta" href="{{ route('contact', ['topic' => 'Partnership']) }}#message">Introduce your organization ↗</a>
+        <span class="eyebrow">Where we work</span>
+        <h2>Greater Boston. Stronger together.</h2>
+        <p>Beacon Harbor Youth Outreach Initiative, Inc. is organized under the laws of the Commonwealth of Massachusetts and based in Quincy. We primarily serve young people across Greater Boston, while engaging families, caregivers, schools, and community organizations as partners in that work.</p>
+        <p>As our programs and partnerships develop, we may extend collaborations beyond our immediate geographic area — wherever it's consistent with our mission.</p>
+        <a class="pill donate-cta" href="{{ route('contact', ['topic' => 'Partnership']) }}#message">Partner With Us ↗</a>
+    </div>
+</section>
+
+<section class="wrap section-block">
+    <div class="section-header reveal">
+        <span class="eyebrow">Our focus area</span>
+        <div class="split"><h2>Based in Quincy, <em>serving Greater Boston.</em></h2></div>
+        <p class="section-lead">Stronger communities, brighter futures.</p>
+    </div>
+    <div class="approach-cards">
+        <article class="approach-card reveal">
+            <span>01</span>
+            <h3>Youth</h3>
+            <p>Young people navigating homelessness, housing instability, or substance-use risk across Greater Boston.</p>
+        </article>
+        <article class="approach-card reveal">
+            <span>02</span>
+            <h3>Families &amp; caregivers</h3>
+            <p>Households we engage alongside youth, recognizing the role they play in long-term stability.</p>
+        </article>
+        <article class="approach-card reveal">
+            <span>03</span>
+            <h3>Schools &amp; community orgs</h3>
+            <p>Partners already working with young people, whose reach and trust we build on rather than duplicate.</p>
+        </article>
     </div>
 </section>
 
 <section class="section-tint">
     <div class="wrap section-block">
         <div class="section-header reveal">
-            <span class="eyebrow">Partnership in practice</span>
-            <div class="split"><h2>Build on the <em>trust already there.</em></h2></div>
-            <p class="section-lead">Community partnerships are strongest when everyone brings their knowledge, listens to young people and works toward a clear shared purpose.</p>
+            <span class="eyebrow">Who we partner with</span>
+            <div class="split"><h2>Building a wider circle of <em>support.</em></h2></div>
         </div>
         <div class="approach-cards">
-            <article class="approach-card reveal"><span>01</span><h3>Share what you see</h3><p>Tell us what young people are asking for, where support is already strong and what questions remain.</p></article>
-            <article class="approach-card reveal"><span>02</span><h3>Find shared priorities</h3><p>Explore whether a program, connection or practical resource could help address a real need.</p></article>
-            <article class="approach-card reveal"><span>03</span><h3>Stay connected</h3><p>Keep communication open, learn from feedback and make changes when circumstances shift.</p></article>
+            @foreach([
+                'Schools & educational institutions',
+                'Youth-serving organizations',
+                'Municipal & public agencies',
+                'Local businesses',
+                'Foundations & philanthropy',
+                'Faith & community groups',
+                'Families & caregivers',
+                'Volunteers & supporters',
+            ] as $partner)
+                <article class="approach-card reveal">
+                    <span>0{{ $loop->iteration }}</span>
+                    <h3>{{ $partner }}</h3>
+                </article>
+            @endforeach
         </div>
     </div>
 </section>
 
 <section class="wrap section-block">
-    <div class="community-note reveal">
+    <div class="section-header reveal">
+        <span class="eyebrow">Expected impact</span>
+        <div class="split"><h2>Building stronger, <em>healthier communities.</em></h2></div>
+        <p class="section-lead">Through partnerships and community-based initiatives, we aim to connect youth with resources, guidance, and supportive networks.</p>
+    </div>
+    <div class="approach-cards">
+        @foreach([
+            'Increased access to positive opportunities for youth',
+            'Stronger mentoring and support networks',
+            'Better connections between families and community resources',
+            'Deeper collaboration among organizations serving young people',
+        ] as $impact)
+            <article class="approach-card reveal">
+                <span>—</span>
+                <h3>{{ $impact }}</h3>
+            </article>
+        @endforeach
+    </div>
+    <div class="closing-cta-inner detail-cta reveal">
         <div>
-            <span class="eyebrow">A good first conversation</span>
-            <h2>Start with the young people <em>you already know.</em></h2>
+            <span class="eyebrow">Greater Boston, Massachusetts</span>
+            <h2>Stronger communities, brighter futures.</h2>
         </div>
-        <p>What are they working toward? Which supports feel easy to reach, and which are harder to navigate? A few thoughtful details can help us understand whether there is a useful connection to make.</p>
-        <a class="textlink textlink-dark" href="{{ route('contact', ['topic' => 'Partnership']) }}#message">Tell us about your community →</a>
+        <a class="pill donate-cta" href="{{ route('contact', ['topic' => 'Partnership']) }}#message">Partner With Us <b>↗</b></a>
     </div>
 </section>

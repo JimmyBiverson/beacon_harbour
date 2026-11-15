@@ -23,10 +23,50 @@ class WebsiteTest extends TestCase
 
     public function test_primary_site_sections_render_their_content(): void
     {
-        $this->get('/what-we-do')->assertOk()->assertSee('Youth empowerment workshops');
-        $this->get('/projects')->assertOk()->assertSee('Our projects');
-        $this->get('/blog')->assertOk()->assertSee('Field notes');
+        $this->get('/what-we-do')
+            ->assertOk()
+            ->assertSee('Real support. Lasting change')
+            ->assertSee('Substance abuse education')
+            ->assertSee('Mental health awareness');
+
+        $this->get('/where-we-work')
+            ->assertOk()
+            ->assertSee('Greater Boston. Stronger together')
+            ->assertSee('Based in Quincy')
+            ->assertSee('Deeper collaboration among organizations serving young people');
+
+        $this->get('/projects')
+            ->assertOk()
+            ->assertSee('Programs that create opportunity')
+            ->assertSee('Youth Empowerment Workshops')
+            ->assertSee('Individual donations');
+
+        $this->get('/blog')
+            ->assertOk()
+            ->assertSee('Stories, insight, and change in action')
+            ->assertSee('Building Beacon Harbor: why we started here')
+            ->assertSee('Making mental health support feel approachable');
+
+        $this->get('/contact')
+            ->assertOk()
+            ->assertSee('info@beaconharboryouth.org')
+            ->assertSee('(617) 555-0123')
+            ->assertSee('Contact person: Sumaya')
+            ->assertSee('We usually reply within a few days');
+
         $this->get('/journal')->assertRedirect('/blog');
+    }
+
+    public function test_social_sharing_uses_a_branded_large_preview_image(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertOk()
+            ->assertSee('images/beacon-harbor-social.png', false)
+            ->assertSee('property="og:image:width" content="1200"', false)
+            ->assertSee('property="og:image:height" content="630"', false)
+            ->assertSee('name="twitter:card" content="summary_large_image"', false)
+            ->assertSee('favicon.ico', false);
     }
 
     public function test_inquiry_is_validated_and_saved(): void
