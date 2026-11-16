@@ -49,8 +49,9 @@ class WebsiteTest extends TestCase
 
         $this->get('/contact')
             ->assertOk()
-            ->assertSee('info@beaconharboryouth.org')
-            ->assertSee('(617) 555-0123')
+            ->assertSee('info@bhyoi.org')
+            ->assertSee('+1 (401) 376-3109')
+            ->assertSee('href="tel:+14013763109"', false)
             ->assertSee('Contact person: Sumaya')
             ->assertSee('We usually reply within a few days');
 

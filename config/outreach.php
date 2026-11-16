@@ -7,9 +7,9 @@ return [
     ],
     'contact' => [
         'address' => ['2 Hancock Street, Unit 807', 'Quincy, MA 02170'],
-        'email' => 'info@beaconharboryouth.org',
-        'phone' => '(617) 555-0123',
-        'phone_uri' => '+16175550123',
+        'email' => 'info@bhyoi.org',
+        'phone' => '+1 (401) 376-3109',
+        'phone_uri' => '+14013763109',
         'person' => 'Sumaya',
         'reply_time' => 'We usually reply within a few days',
     ],
