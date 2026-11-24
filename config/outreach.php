@@ -1,0 +1,68 @@
+<?php
+
+return [
+    'organization' => [
+        'name' => 'Beacon Harbor Youth Outreach Initiative, Inc.',
+        'tagline' => 'Empowering young people in Greater Boston through outreach, mentorship, education, personal development, and community engagement.',
+        'legal_name' => 'Beacon Harbor Youth Outreach Initiative, Inc.',
+        'mission' => 'To connect at-risk and homeless youth in Greater Boston to tailored services that address mental, socioeconomic, and psychological barriers in a safe and supportive environment.',
+        'founded_location' => 'Quincy, Massachusetts',
+    ],
+    'contact' => [
+        'address' => ['Quincy, Massachusetts 02171', 'United States'],
+        'email' => 'info@bhyoi.org',
+        'phone' => '+1 (401) 376-3109',
+        'phone_uri' => '+14013763109',
+        'person' => 'Sumaya',
+        'reply_time' => 'We usually reply within a few days',
+    ],
+    'pages' => [
+        'home' => ['Stronger youth. Brighter tomorrows.', 'Beacon Harbor Youth Outreach Initiative, Inc. supports at-risk and homeless youth in Quincy and Massachusetts through mental wellness, life-skills, career, and community programs.'],
+        'about' => ['About Beacon Harbor', 'Learn about Beacon Harbor Youth Outreach Initiative, Inc., a nonprofit based in Quincy, Massachusetts that empowers at-risk youth through outreach, mentorship, education, personal development, and community engagement.'],
+        'programs' => ['Youth Programs in Quincy, Massachusetts', 'Explore Beacon Harbor youth outreach programs in Massachusetts, including mental wellness, life skills, career development, safe support, substance-abuse education, and personal empowerment.'],
+        'community' => ['Youth Outreach in Quincy & Massachusetts', 'Beacon Harbor is based in Quincy, Massachusetts, and collaborates with families, schools, caregivers, and youth-serving organizations across Massachusetts and New England.'],
+        'journal' => ['Youth Outreach Insights & News', 'Read updates, practical insights, and stories from Beacon Harbor Youth Outreach Initiative in Quincy, Massachusetts as we expand youth programs and community partnerships.'],
+        'involvement' => ['Get Involved in Youth Outreach', 'Support Beacon Harbor through volunteering, community partnerships, individual giving, grants, or institutional collaboration to strengthen youth programs in Massachusetts.'],
+        'contact' => ['Contact Beacon Harbor in Quincy, MA', 'Contact Beacon Harbor Youth Outreach Initiative, Inc. in Quincy, Massachusetts about youth programs, partnerships, volunteering, giving, or general inquiries.'],
+        'privacy' => ['Privacy Policy', 'Learn how Beacon Harbor Youth Outreach Initiative, Inc. handles information submitted through this website and protects visitor privacy.'],
+        'projects' => ['Youth Outreach Projects in Massachusetts', 'Explore Beacon Harbor initiatives that create opportunity for at-risk and homeless young people across Quincy and Massachusetts through education, wellness, and career support.'],
+    ],
+    'services' => [
+        'substance-abuse-education' => ['Substance abuse education', 'Prevention', 'learning', 'Evidence-based education and prevention programming that gives young people accurate information and the confidence to make healthy choices for themselves.'],
+        'life-skills-training' => ['Life skills training', 'Daily living', 'learning', 'Communication, decision-making, goal-setting, responsibility, and financial awareness — the practical foundations every young person needs to manage day-to-day life.'],
+        'mental-health-awareness' => ['Mental health awareness', 'Wellness', 'friends', 'Promoting wellness and connecting youth to care in a judgment-free environment, so mental health support feels approachable rather than intimidating.'],
+        'career-development' => ['Career development', 'Opportunity', 'pathways', 'Job readiness, resume building, and career exploration designed to open doors to real, sustainable opportunity.'],
+        'personal-empowerment' => ['Personal empowerment', 'Growth', 'learning', 'Building the confidence and independence every young person needs to shape their own future and advocate for themselves.'],
+        'safe-supportive-environment' => ['Safe & supportive environment', 'Foundation', 'friends', 'A welcoming space where youth can thrive without judgment — the stable ground every other program is built on.'],
+    ],
+    'programs' => [
+        'youth-empowerment' => ['Youth Empowerment Workshops', 'Personal empowerment', 'learning', 'Building confidence, communication, and leadership through hands-on group sessions.', 'Building the confidence and independence every young person needs to shape their own future and advocate for themselves.', 'Confidence · Independence · Self-advocacy'],
+        'mental-wellness' => ['Mental Wellness Support', 'Mental health awareness', 'friends', 'Peer support and care connections in a judgment-free setting.', 'Promoting wellness and connecting youth to care in a judgment-free environment, so mental health support feels approachable rather than intimidating.', 'Wellness · Care connections · Judgment-free support'],
+        'career-pathways' => ['Career Pathways', 'Career development', 'pathways', 'Job readiness, resume building, and career exploration.', 'Job readiness, resume building, and career exploration designed to open doors to real, sustainable opportunity.', 'Job readiness · Resume building · Career exploration'],
+        'community-outreach' => ['Community Outreach', 'Where We Work', 'community', 'Meeting youth where they are across New England neighborhoods.', 'We primarily serve young people across New England, while engaging families, caregivers, schools, and community organizations as partners in that work.', 'Families and caregivers · Schools and educational institutions · Youth-serving organizations'],
+        'education-enrichment' => ['Education & Enrichment', 'Life skills training', 'learning', 'Academic support and personal development programming.', 'Communication, decision-making, goal-setting, responsibility, and financial awareness — the practical foundations every young person needs to manage day-to-day life.', 'Communication · Decision-making · Goal-setting · Responsibility · Financial awareness'],
+        'safe-space' => ['Safe Space Initiative', 'Safe & supportive environment', 'friends', 'A supportive environment for growth and healing.', 'A welcoming space where youth can thrive without judgment — the stable ground every other program is built on.', 'Safety · Belonging · Support'],
+    ],
+    'projects' => [
+        'youth-empowerment-workshops' => ['Youth Empowerment Workshops', 'Life Skills', 'learning', 'Building confidence, communication, and leadership through hands-on group sessions.'],
+        'mental-wellness-support' => ['Mental Wellness Support', 'Mental Health', 'friends', 'Peer support and care connections in a judgment-free setting.'],
+        'career-pathways' => ['Career Pathways', 'Career Development', 'pathways', 'Job readiness, resume building, and career exploration.'],
+        'community-outreach' => ['Community Outreach', 'Life Skills', 'community', 'Meeting youth where they are across New England neighborhoods.'],
+        'education-enrichment' => ['Education & Enrichment', 'Education', 'learning', 'Academic support and personal development programming.'],
+        'safe-space-initiative' => ['Safe Space Initiative', 'Mental Health', 'friends', 'A supportive environment for growth and healing.'],
+    ],
+    'funding_sources' => [
+        'Individual donations',
+        'Grants & philanthropy',
+        'Corporate partnerships',
+        'Fundraising initiatives',
+        'Volunteers',
+        'Strategic collaborations',
+    ],
+    'articles' => [
+        'why-beacon-harbor' => ['Building Beacon Harbor: why we started here', 'Founding story', 'community', "The idea behind Beacon Harbor is simple: every young person facing homelessness deserves a stable place to land and a clear path forward. Here's the thinking behind our name, our mission, and our first programs in Quincy and New England.", "The idea behind Beacon Harbor is simple: every young person facing homelessness deserves a stable place to land and a clear path forward. Here's the thinking behind our name, our mission, and our first programs in Quincy and New England.", 'A beacon represents direction and possibility; a harbor represents safety, belonging, and support. Together they describe what we\'re building — pathways to opportunity, mentorship, and personal development, created through collaboration and compassion so young people can recognize their potential and move confidently toward their future.'],
+        'community-partnerships' => ['What we look for in a community partner', 'Partnerships', 'pathways', "Why we're prioritizing schools, youth-serving organizations, and local agencies as we grow.", "Why we're prioritizing schools, youth-serving organizations, and local agencies as we grow.", "We're building relationships with schools, municipal agencies, local businesses, foundations, and faith and community organizations — enhancing the ecosystem already serving New England's youth rather than duplicating it."],
+        'everyday-life-skills' => ['What life skills training really looks like', 'Programs', 'learning', 'A closer look at how we teach communication, budgeting, and goal-setting to young people.', 'A closer look at how we teach communication, budgeting, and goal-setting to young people.', 'Sessions focus on practical, everyday foundations — communication, decision-making, responsibility, and financial awareness — so young people leave with tools they can use immediately, not just concepts.'],
+        'trust-first' => ['Making mental health support feel approachable', 'Mental health', 'friends', "Why we're designing our wellness programming around trust before treatment.", "Why we're designing our wellness programming around trust before treatment.", 'Homelessness brings mental, socio-economic, and psychological barriers that compound one another. We lead with compassion first, so young people feel safe enough to accept support before we ever talk about treatment.'],
+    ],
+];
