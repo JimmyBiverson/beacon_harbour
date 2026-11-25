@@ -23,13 +23,33 @@ class WebsiteTest extends TestCase
 
     public function test_primary_site_sections_render_their_content(): void
     {
+        $this->get('/')
+            ->assertOk()
+            ->assertSee('Beacon Harbor Youth Outreach Initiative, Inc.')
+            ->assertSee('Empowering At-Risk Youth. Creating Opportunities. Building Stronger Communities.')
+            ->assertSee('Our Mission')
+            ->assertSee('Our Vision')
+            ->assertSee('Our Values')
+            ->assertSee('Our Approach')
+            ->assertSee('Our Impact')
+            ->assertSee('Mental health awareness');
+
         $this->get('/about')
             ->assertOk()
-            ->assertSee('Empowering young people. Building stronger communities.')
+            ->assertSee('Empowering at-risk youth. Creating opportunities. Building stronger communities.')
             ->assertSee('Our Mission')
+            ->assertSee('receive the resources to reach their potential')
             ->assertSee('Our core')
             ->assertSee('A beacon.')
-            ->assertSee('Integrity &amp; transparency', false);
+            ->assertSee('Integrity &amp; transparency', false)
+            ->assertSee('What We Do')
+            ->assertSee('Life Skills &amp; Personal', false)
+            ->assertSee('Mental Health &amp; Substance Abuse Education', false)
+            ->assertSee('Our Impact')
+            ->assertSee('Together, we can create more opportunities for young people and contribute to stronger, more inclusive communities in Greater Boston.')
+            ->assertSee('Partner With Us')
+            ->assertSee('Join Us in Empowering Young People')
+            ->assertSee('Community Partnerships');
 
         $this->get('/what-we-do')
             ->assertOk()

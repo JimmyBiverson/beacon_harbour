@@ -1,5 +1,5 @@
 <section class="page-feature feature">
-    <x-photo name="pathways" :hero="true"/>
+    <x-photo name="pathways"/>
     <div>
         <span class="eyebrow">Where we work</span>
         <h2>Quincy & Massachusetts. Stronger together.</h2>

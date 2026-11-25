@@ -1,33 +1,29 @@
-<section class="hero-shell">
+<section class="hero-shell home-hero">
     <x-photo name="community" :hero="true" class="hero-backdrop" aria-hidden="true"/>
     <div class="wrap hero-grid">
         <div class="hero-copy reveal">
-            <span class="tag"><i></i> New England, Massachusetts</span>
-            <h1>Stronger youth.<br><em>Brighter</em><br>tomorrows.</h1>
-            <p>Beacon Harbor connects at-risk and homeless youth across New England to the mental health, life-skills, and career support they need — in a space built on safety and respect.</p>
+            <span class="tag"><i></i> Quincy, Massachusetts</span>
+            <h1>Beacon Harbor Youth Outreach Initiative, Inc.</h1>
+            <p class="hero-tagline">Empowering At-Risk Youth. Creating Opportunities. Building Stronger Communities.</p>
+            <p>Beacon Harbor Youth Outreach Initiative, Inc. is a Massachusetts nonprofit connecting at-risk and homeless youth in Greater Boston with tailored support, mentorship, life-skills development, educational opportunities, and community resources.</p>
             <div class="actions">
-                <a class="pill donate-cta" href="{{ route('involvement') }}">Get Involved <b>↗</b></a>
-                <a class="textlink" href="{{ route('programs') }}">See Our Programs <b>→</b></a>
+                <a class="pill dark" href="{{ route('about') }}">Learn More About Us <b>→</b></a>
+                <a class="pill donate-cta" href="{{ route('involvement') }}">Get Involved <b>→</b></a>
             </div>
-            <ul class="mini-stats source-pillars" aria-label="Beacon Harbor at a glance">
-                <li><strong>Support</strong><span>Safe, supportive spaces where young people can stabilize and be heard.</span></li>
-                <li><strong>Empower</strong><span>Life skills, education, and mentorship that build lasting confidence.</span></li>
-                <li><strong>Strengthen</strong><span>Partnerships across New England that make communities more resilient.</span></li>
-            </ul>
         </div>
 
         <div class="hero-media reveal" data-slider aria-label="Beacon Harbor youth outreach images">
             <div class="slide is-active">
-                <img src="{{ asset('images/community-800.webp') }}" alt="Young people and community members together outdoors">
+                <img src="{{ asset('images/community-800.webp') }}" alt="Young people and community members together outdoors" width="800" height="600" loading="eager" decoding="async">
             </div>
             <div class="slide">
-                <img src="{{ asset('images/friends-800.webp') }}" alt="Young people sharing time and building connection">
+                <img src="{{ asset('images/friends-800.webp') }}" alt="Young people sharing time and building connection" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <div class="slide">
-                <img src="{{ asset('images/pathways-800.webp') }}" alt="Students walking together across a campus">
+                <img src="{{ asset('images/pathways-800.webp') }}" alt="Students walking together across a campus" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <div class="slide">
-                <img src="{{ asset('images/learning-800.webp') }}" alt="Young people gathered around a study table">
+                <img src="{{ asset('images/learning-800.webp') }}" alt="Young people gathered around a study table" width="800" height="600" loading="lazy" decoding="async">
             </div>
 
             <div class="slider-overlay">
@@ -44,64 +40,71 @@
     </div>
 </section>
 
-<div class="ribbon">
-    <div class="wrap ribbon-inner">
-        <span>01 <strong>Support</strong></span>
-        <span>02 <strong>Empower</strong></span>
-        <span>03 <strong>Strengthen</strong></span>
-    </div>
-</div>
-
-<section class="wrap section-block home-intro">
-    <div class="home-intro-copy reveal">
-        <span class="eyebrow">Our name, our purpose</span>
-        <h2>What "Beacon Harbor" means to us</h2>
-        <p>A beacon represents direction and possibility — a fixed point of light for anyone finding their way through a hard season. A harbor represents safety, belonging, and support — a place to steady before setting out again.</p>
-        <p>Together, they describe what we're building for young people across Quincy and Greater Boston: a place to find encouragement, develop real skills, and move toward their future with confidence.</p>
-        <a class="textlink textlink-dark" href="{{ route('about') }}">What we stand for <b>→</b></a>
-    </div>
-    <div class="home-intro-image reveal">
-        <x-photo name="friends" :hero="true"/>
-        <div class="image-note"><span class="dot"></span> A harbor represents safety, belonging, and support.</div>
+<section class="home-pillars" aria-label="Our mission, vision, values, and approach">
+    <div class="wrap home-pillars-grid">
+        <article class="home-pillar">
+            <span class="home-pillar-icon" aria-hidden="true">M</span>
+            <h2>Our Mission</h2>
+            <p>Connect at-risk and homeless youth in Greater Boston with tailored services and support.</p>
+        </article>
+        <article class="home-pillar">
+            <span class="home-pillar-icon" aria-hidden="true">V</span>
+            <h2>Our Vision</h2>
+            <p>Every young person has the resources and support to reach their potential.</p>
+        </article>
+        <article class="home-pillar">
+            <span class="home-pillar-icon" aria-hidden="true">♥</span>
+            <h2>Our Values</h2>
+            <p>Empowerment, inclusion, integrity, compassion, collaboration, and learning.</p>
+        </article>
+        <article class="home-pillar">
+            <span class="home-pillar-icon" aria-hidden="true">↗</span>
+            <h2>Our Approach</h2>
+            <p>A community-centered, youth-focused approach that creates lasting change.</p>
+        </article>
     </div>
 </section>
 
 <section class="section-tint">
     <div class="wrap section-block">
         <div class="section-header reveal">
-            <span class="eyebrow">What we do</span>
+            <span class="eyebrow">What We Do</span>
             <div class="split">
-                <h2>Real support. <em>Lasting change.</em></h2>
-                <a class="textlink textlink-dark" href="{{ route('programs') }}">See Our Programs →</a>
+                <h2>Programs and resources to help young people thrive.</h2>
+                <a class="textlink textlink-dark" href="{{ route('programs') }}">Explore Our Programs →</a>
             </div>
-            <p class="section-lead">We provide holistic, youth-centered programs that educate, empower, and create opportunity for at-risk and homeless youth across New England.</p>
+            <p class="section-lead">From mentorship and life skills to education, career development, and wellness, we connect young people with opportunities to build a brighter future.</p>
         </div>
-        <x-cards type="service" :limit="3"/>
+        <x-cards type="service" :limit="6"/>
     </div>
 </section>
 
-<section class="approach-band">
-    <div class="wrap approach-band-grid">
-        <div class="reveal">
-            <span class="eyebrow">Our approach</span>
-            <h2>Community-centered. <em>Youth-focused.</em></h2>
-            <p>We take a community-centered, youth-focused approach. Rather than assuming what young people need, we listen first — to youth, families, and the organizations already working in their corner — and build practical programs around the gaps we find together.</p>
-            <p>We work collaboratively with other organizations addressing youth homelessness and development in Boston — enhancing the ecosystem rather than competing with existing groups.</p>
-            <a class="pill light" href="{{ route('contact') }}">Partner With Us <b>↗</b></a>
-        </div>
-        <div class="approach-steps">
-            <article class="approach-step reveal">
-                <span>01</span>
-                <div><h3>Responsive</h3><p>Responsive to real, current needs rather than fixed assumptions.</p></div>
-            </article>
-            <article class="approach-step reveal">
-                <span>02</span>
-                <div><h3>Inclusive</h3><p>Inclusive of youth regardless of race, religion, gender, or immigration background.</p></div>
-            </article>
-            <article class="approach-step reveal">
-                <span>03</span>
-                <div><h3>Measurable outcomes</h3><p>Focused on measurable, positive outcomes for the young people we serve.</p></div>
-            </article>
+<section class="wrap section-block impact-section">
+    <div class="impact-image reveal">
+        <x-photo name="community"/>
+    </div>
+    <div class="impact-copy reveal">
+        <span class="eyebrow">Our Impact</span>
+        <h2>Together, we can create more opportunities for young people.</h2>
+        <p>By listening, building trusted partnerships, and offering practical support, we work toward stronger, more inclusive communities in Greater Boston.</p>
+        <a class="pill donate-cta" href="{{ route('contact') }}">Partner With Us <b>→</b></a>
+    </div>
+    <ul class="impact-points">
+        <li>Youth empowerment</li>
+        <li>Community partnerships</li>
+        <li>Brighter futures</li>
+    </ul>
+</section>
+
+<section class="section-tint">
+    <div class="wrap section-block">
+        <div class="section-header reveal">
+            <span class="eyebrow">Our name, our purpose</span>
+            <div class="split">
+                <h2>A beacon of hope. <em>A harbor of support.</em></h2>
+                <a class="textlink textlink-dark" href="{{ route('about') }}">More About Us →</a>
+            </div>
+            <p class="section-lead">A beacon represents direction and possibility. A harbor represents safety, belonging, and support. Together, they describe the future we want every young person to be able to navigate.</p>
         </div>
     </div>
 </section>
@@ -122,12 +125,12 @@
     <div class="wrap closing-cta-inner reveal">
         <div>
             <span class="eyebrow">Get Involved</span>
-            <h2>Help us build a stronger harbor for New England's youth.</h2>
-            <p>Partnerships across New England that make communities more resilient.</p>
+            <h2>Join us in empowering young people.</h2>
+            <p>Whether you volunteer, partner, or support our mission, you can help build brighter futures.</p>
         </div>
         <div class="actions">
             <a class="pill donate-cta" href="{{ route('involvement') }}">Get Involved <b>↗</b></a>
-            <a class="textlink" href="{{ route('community') }}">Our Focus Area →</a>
+            <a class="textlink" href="{{ route('community') }}">Where We Work →</a>
         </div>
     </div>
 </section>

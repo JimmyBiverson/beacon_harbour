@@ -1,3 +1,15 @@
+import Lenis from 'lenis';
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const lenis = new Lenis({
+    autoRaf: true,
+    anchors: { offset: -88 },
+    smoothWheel: true,
+    duration: 0.9,
+    wheelMultiplier: 0.9,
+    respectReducedMotion: true,
+});
+
 const toggle = document.querySelector('#toggle');
 const nav = document.querySelector('#nav');
 const compact = matchMedia('(max-width: 900px)');
@@ -30,19 +42,19 @@ if (toggle && nav) {
 const siteHeader = document.querySelector('#site-header');
 const scrollProgress = document.querySelector('#scroll-progress');
 if (siteHeader) {
-    const updateHeaderState = () => {
-        siteHeader.classList.toggle('is-scrolled', window.scrollY > 10);
+    const updateHeaderState = (scrollY = lenis.scroll) => {
+        siteHeader.classList.toggle('is-scrolled', scrollY > 10);
 
         if (scrollProgress) {
             const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+            const progress = scrollableHeight > 0 ? scrollY / scrollableHeight : 0;
             scrollProgress.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
         }
     };
 
     updateHeaderState();
-    window.addEventListener('scroll', updateHeaderState, { passive: true });
-    window.addEventListener('resize', updateHeaderState, { passive: true });
+    lenis.on('scroll', updateHeaderState);
+    window.addEventListener('resize', () => updateHeaderState(), { passive: true });
 }
 
 const slider = document.querySelector('[data-slider]');
@@ -97,7 +109,6 @@ if (slider) {
 }
 
 const particleCanvas = document.querySelector('#particle-field');
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (particleCanvas instanceof HTMLCanvasElement && !prefersReducedMotion) {
     const context = particleCanvas.getContext('2d');
@@ -105,7 +116,11 @@ if (particleCanvas instanceof HTMLCanvasElement && !prefersReducedMotion) {
     let animationFrame = 0;
     let viewportWidth = 0;
     let viewportHeight = 0;
+    let isRunning = false;
+    let lastDraw = 0;
     const maximumConnectionDistance = 150;
+    const maximumConnectionDistanceSquared = maximumConnectionDistance * maximumConnectionDistance;
+    const frameInterval = 1000 / 30;
 
     const resizeCanvas = () => {
         if (!context) {
@@ -121,7 +136,7 @@ if (particleCanvas instanceof HTMLCanvasElement && !prefersReducedMotion) {
         particleCanvas.style.height = `${viewportHeight}px`;
         context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
-        const particleCount = Math.min(64, Math.max(24, Math.round((viewportWidth * viewportHeight) / 22000)));
+        const particleCount = Math.min(40, Math.max(14, Math.round((viewportWidth * viewportHeight) / 32000)));
         particles = Array.from({ length: particleCount }, () => ({
             x: Math.random() * viewportWidth,
             y: Math.random() * viewportHeight,
@@ -131,11 +146,7 @@ if (particleCanvas instanceof HTMLCanvasElement && !prefersReducedMotion) {
         }));
     };
 
-    const drawParticles = () => {
-        if (!context) {
-            return;
-        }
-
+    const drawFrame = timestamp => {
         context.clearRect(0, 0, viewportWidth, viewportHeight);
 
         particles.forEach((particle, index) => {
@@ -156,9 +167,12 @@ if (particleCanvas instanceof HTMLCanvasElement && !prefersReducedMotion) {
 
             for (let nextIndex = index + 1; nextIndex < particles.length; nextIndex += 1) {
                 const nextParticle = particles[nextIndex];
-                const distance = Math.hypot(particle.x - nextParticle.x, particle.y - nextParticle.y);
+                const deltaX = particle.x - nextParticle.x;
+                const deltaY = particle.y - nextParticle.y;
+                const distanceSquared = deltaX * deltaX + deltaY * deltaY;
 
-                if (distance < maximumConnectionDistance) {
+                if (distanceSquared < maximumConnectionDistanceSquared) {
+                    const distance = Math.sqrt(distanceSquared);
                     context.beginPath();
                     context.moveTo(particle.x, particle.y);
                     context.lineTo(nextParticle.x, nextParticle.y);
@@ -169,22 +183,41 @@ if (particleCanvas instanceof HTMLCanvasElement && !prefersReducedMotion) {
             }
         });
 
-        animationFrame = window.requestAnimationFrame(drawParticles);
+        lastDraw = timestamp;
     };
 
-    const stopParticlesWhenHidden = () => {
-        if (document.hidden) {
-            window.cancelAnimationFrame(animationFrame);
+    const drawParticles = timestamp => {
+        if (!context || !isRunning) {
             return;
+        }
+
+        if (timestamp - lastDraw >= frameInterval) {
+            drawFrame(timestamp);
         }
 
         animationFrame = window.requestAnimationFrame(drawParticles);
     };
 
+    const syncParticles = () => {
+        if (document.hidden) {
+            isRunning = false;
+            window.cancelAnimationFrame(animationFrame);
+            return;
+        }
+
+        if (isRunning) {
+            return;
+        }
+
+        isRunning = true;
+        lastDraw = 0;
+        animationFrame = window.requestAnimationFrame(drawParticles);
+    };
+
     resizeCanvas();
-    drawParticles();
+    syncParticles();
     window.addEventListener('resize', resizeCanvas, { passive: true });
-    document.addEventListener('visibilitychange', stopParticlesWhenHidden);
+    document.addEventListener('visibilitychange', syncParticles);
 }
 
 if ('IntersectionObserver' in window && !prefersReducedMotion) {

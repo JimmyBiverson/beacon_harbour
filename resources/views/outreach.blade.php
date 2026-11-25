@@ -25,7 +25,7 @@
         <meta name="twitter:description" content="{{ $description }}">
         <meta name="twitter:image" content="{{ secure_asset('images/beacon-harbor-social.png') }}">
         <meta name="twitter:image:alt" content="Beacon Harbor Youth Outreach Initiative emblem: a lighthouse over a wave, held by two open hands">
-        <meta name="theme-color" content="#173f4b">
+        <meta name="theme-color" content="{{ in_array($page, ['home', 'about'], true) ? '#0d315e' : '#173f4b' }}">
         <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
         <link rel="icon" type="image/png" sizes="640x640" href="{{ asset('images/beacon-harbor-logo.png') }}">
         <link rel="apple-touch-icon" href="{{ asset('images/beacon-harbor-logo.png') }}">
@@ -97,7 +97,7 @@
         </script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body>
+    <body data-page="{{ $page }}">
         <a class="skip" href="#main">Skip to content</a>
 
         <canvas id="particle-field" aria-hidden="true"></canvas>

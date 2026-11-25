@@ -17,8 +17,8 @@ return [
         'reply_time' => 'We usually reply within a few days',
     ],
     'pages' => [
-        'home' => ['Stronger youth. Brighter tomorrows.', 'Beacon Harbor Youth Outreach Initiative, Inc. supports at-risk and homeless youth in Quincy and Massachusetts through mental wellness, life-skills, career, and community programs.'],
-        'about' => ['About Beacon Harbor', 'Learn about Beacon Harbor Youth Outreach Initiative, Inc., a nonprofit based in Quincy, Massachusetts that empowers at-risk youth through outreach, mentorship, education, personal development, and community engagement.'],
+        'home' => ['Beacon Harbor Youth Outreach Initiative, Inc.', 'Beacon Harbor Youth Outreach Initiative, Inc. empowers at-risk youth, creates opportunities, and builds stronger communities through support, mentorship, education, and youth-centered programs in Greater Boston.'],
+        'about' => ['About Beacon Harbor', 'Learn how Beacon Harbor Youth Outreach Initiative, Inc. connects young people in Greater Boston with outreach, mentorship, education, personal development, and community resources.'],
         'programs' => ['Youth Programs in Quincy, Massachusetts', 'Explore Beacon Harbor youth outreach programs in Massachusetts, including mental wellness, life skills, career development, safe support, substance-abuse education, and personal empowerment.'],
         'community' => ['Youth Outreach in Quincy & Massachusetts', 'Beacon Harbor is based in Quincy, Massachusetts, and collaborates with families, schools, caregivers, and youth-serving organizations across Massachusetts and New England.'],
         'journal' => ['Youth Outreach Insights & News', 'Read updates, practical insights, and stories from Beacon Harbor Youth Outreach Initiative in Quincy, Massachusetts as we expand youth programs and community partnerships.'],

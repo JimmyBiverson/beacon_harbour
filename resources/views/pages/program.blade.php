@@ -1,5 +1,5 @@
 <div class="feature detail-feature">
-    <x-photo :name="$entry[2]" :hero="true"/>
+    <x-photo :name="$entry[2]"/>
     <div>
         <span class="eyebrow">Inside the program</span>
         <h2>What this looks like</h2>

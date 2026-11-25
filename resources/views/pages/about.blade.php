@@ -1,10 +1,10 @@
 <section class="page-feature feature">
-    <x-photo name="friends" :hero="true"/>
+    <x-photo name="friends"/>
     <div>
         <span class="eyebrow">About us</span>
-        <h2>Empowering young people. Building stronger communities.</h2>
-        <p>Beacon Harbor Youth Outreach Initiative, Inc. is a nonprofit organization based in Quincy, Massachusetts, committed to supporting young people through youth outreach, mentorship, education, personal development, and community engagement.</p>
-        <p>We believe every young person deserves a safe and supportive environment, access to meaningful opportunities, and the resources needed to build a positive and fulfilling future.</p>
+        <h2>Empowering at-risk youth. Creating opportunities. Building stronger communities.</h2>
+        <p>Beacon Harbor Youth Outreach Initiative, Inc. is a Massachusetts nonprofit based in Quincy, connecting young people with outreach, mentorship, education, personal development, and community resources.</p>
+        <p>We believe every young person deserves a safe and supportive environment, meaningful opportunities, and the resources to build a positive future.</p>
         <a class="textlink textlink-dark" href="{{ route('programs') }}">See Our Programs <b>→</b></a>
     </div>
 </section>
@@ -14,11 +14,12 @@
         <div class="story-copy reveal">
             <span class="eyebrow">Our Mission</span>
             <h2>Guidance, resources, and <em>tailored support.</em></h2>
-            <p>To connect at-risk and homeless youth in Greater Boston to tailored services that address mental, socioeconomic, and psychological barriers and challenges in a safe and supportive environment.</p>
+            <p>To connect at-risk and homeless youth in Greater Boston to tailored services and support in a safe, supportive environment.</p>
+            <p>We help young people navigate barriers to well-being and opportunity through mentorship, education, life-skills development, and community connection.</p>
         </div>
         <aside class="story-note reveal">
             <span class="eyebrow">Our Vision</span>
-            <blockquote>"That all youth exposed to homelessness and substance abuse receive the resources and support to reach their potential."</blockquote>
+            <blockquote>"That all youth exposed to homelessness and substance abuse receive the resources to reach their potential."</blockquote>
             <p>We envision communities where young people are valued, supported, included, and empowered to pursue their aspirations.</p>
         </aside>
     </div>
@@ -34,6 +35,31 @@
         <article class="approach-card reveal"><span>01</span><h3>Youth Outreach & Support</h3><p>Understanding individual needs, building supportive connections, and helping young people access appropriate resources.</p></article>
         <article class="approach-card reveal"><span>02</span><h3>Mentorship & Guidance</h3><p>Encouraging personal growth, confidence, responsibility, positive decision-making, and goal-setting.</p></article>
         <article class="approach-card reveal"><span>03</span><h3>Resource Connection</h3><p>Connecting young people and families with educational, social, recreational, employment, and community resources.</p></article>
+    </div>
+</section>
+
+<section class="section-tint">
+    <div class="wrap section-block">
+        <div class="section-header reveal">
+            <span class="eyebrow">What We Do</span>
+            <div class="split"><h2>Programs that meet young people <em>where they are.</em></h2></div>
+            <p class="section-lead">We provide programs and resources to help young people thrive, from first contact to lasting opportunity.</p>
+        </div>
+        <div class="approach-cards">
+            @foreach([
+                'Youth Outreach & Support' => 'Building trusting connections and helping young people access the right support early.',
+                'Mentorship & Guidance' => 'Pairing young people with steady encouragement, practical advice, and positive role models.',
+                'Life Skills & Personal' => 'Practising communication, decision-making, goal-setting, and everyday independence.',
+                'Education & Career Development' => 'Opening doors through academic support, job readiness, and career exploration.',
+                'Mental Health & Substance Abuse Education' => 'Offering accurate information and approachable support without judgment.',
+            ] as $title => $text)
+                <article class="approach-card reveal">
+                    <span>{{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
+                    <h3>{{ $title }}</h3>
+                    <p>{{ $text }}</p>
+                </article>
+            @endforeach
+        </div>
     </div>
 </section>
 
@@ -98,6 +124,27 @@
         ] as $partner)
             <article class="approach-card reveal"><span>—</span><h3>{{ $partner }}</h3></article>
         @endforeach
+    </div>
+</section>
+
+<section class="impact-band">
+    <div class="wrap impact-inner section-block reveal">
+        <div class="impact-copy">
+            <span class="eyebrow">Our Impact</span>
+            <h2>Together, we can make a <em>difference.</em></h2>
+            <p>Together, we can create more opportunities for young people and contribute to stronger, more inclusive communities in Greater Boston.</p>
+            <a class="pill donate-cta" href="{{ route('involvement') }}">Partner With Us <b>↗</b></a>
+        </div>
+        <aside class="impact-aside">
+            <span class="eyebrow">Join Us in Empowering Young People</span>
+            <p>Whether you volunteer, partner, or support our mission, you can help us build brighter futures.</p>
+            <ul class="focus-tags">
+                <li>Youth Empowerment</li>
+                <li>Community Partnerships</li>
+                <li>Brighter Futures</li>
+            </ul>
+            <a class="textlink" href="{{ route('community') }}">See where we work →</a>
+        </aside>
     </div>
 </section>
 
