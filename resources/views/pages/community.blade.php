@@ -79,11 +79,12 @@
             </article>
         @endforeach
     </div>
-    <div class="closing-cta-inner detail-cta reveal">
-        <div>
-            <span class="eyebrow">Quincy, Massachusetts</span>
-            <h2>Stronger communities, brighter futures.</h2>
-        </div>
-        <a class="pill donate-cta" href="{{ route('contact', ['topic' => 'Partnership']) }}#message">Partner With Us <b>↗</b></a>
-    </div>
 </section>
+
+<x-pinned-cta
+    eyebrow="Quincy, Massachusetts"
+    title="Stronger communities, brighter futures."
+    href="{{ route('contact', ['topic' => 'Partnership']) }}#message"
+    label="Partner With Us"
+    image="community"
+/>

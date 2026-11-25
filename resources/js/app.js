@@ -5,8 +5,11 @@ const lenis = new Lenis({
     autoRaf: true,
     anchors: { offset: -88 },
     smoothWheel: true,
-    duration: 0.9,
-    wheelMultiplier: 0.9,
+    duration: 1.15,
+    easing: value => Math.min(1, 1.001 - 2 ** (-10 * value)),
+    wheelMultiplier: 1,
+    touchMultiplier: 1.6,
+    autoResize: true,
     respectReducedMotion: true,
 });
 
@@ -41,21 +44,98 @@ if (toggle && nav) {
 
 const siteHeader = document.querySelector('#site-header');
 const scrollProgress = document.querySelector('#scroll-progress');
-if (siteHeader) {
-    const updateHeaderState = (scrollY = lenis.scroll) => {
+const pinnedCtaSections = [...document.querySelectorAll('[data-pinned-cta]')];
+const pinnedCtaDesktop = matchMedia('(min-width: 1024px)');
+
+function updateHeaderState() {
+    const scrollY = window.scrollY;
+    if (siteHeader) {
         siteHeader.classList.toggle('is-scrolled', scrollY > 10);
+    }
 
-        if (scrollProgress) {
-            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = scrollableHeight > 0 ? scrollY / scrollableHeight : 0;
-            scrollProgress.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
-        }
-    };
-
-    updateHeaderState();
-    lenis.on('scroll', updateHeaderState);
-    window.addEventListener('resize', () => updateHeaderState(), { passive: true });
+    if (scrollProgress) {
+        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollableHeight > 0 ? scrollY / scrollableHeight : 0;
+        scrollProgress.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
+    }
 }
+
+function resetPinnedCta(section) {
+    section.querySelectorAll('[data-pinned-cta-media], [data-pinned-cta-ring], [data-pinned-cta-content]').forEach(element => {
+        element.style.removeProperty('clip-path');
+        element.style.removeProperty('transform');
+        element.style.removeProperty('opacity');
+    });
+}
+
+function updatePinnedCtas() {
+    if (!document.documentElement.classList.contains('has-pinned-cta')) {
+        return;
+    }
+
+    const radiusLimit = Math.hypot(window.innerWidth, window.innerHeight) / 2 * 1.05;
+
+    pinnedCtaSections.forEach(section => {
+        const wrapper = section.closest('[data-pinned-cta-scroll]');
+        const media = section.querySelector('[data-pinned-cta-media]');
+        const ring = section.querySelector('[data-pinned-cta-ring]');
+        const content = section.querySelector('[data-pinned-cta-content]');
+
+        if (!wrapper || !media || !content) {
+            return;
+        }
+
+        const range = Math.max(1, wrapper.offsetHeight - window.innerHeight);
+        const progress = Math.min(1, Math.max(0, -wrapper.getBoundingClientRect().top / range));
+
+        media.style.clipPath = `circle(${84 + (radiusLimit - 84) * progress}px at 50% 50%)`;
+        media.style.transform = `scale(${1.18 - 0.18 * progress})`;
+
+        if (ring) {
+            ring.style.transform = `scale(${2 + 418 * progress})`;
+            ring.style.opacity = String(1 - progress);
+        }
+
+        const contentProgress = Math.min(1, Math.max(0, (progress - 0.5) * 2));
+        content.style.opacity = String(contentProgress);
+        content.style.transform = `scale(${1.18 - 0.18 * contentProgress})`;
+    });
+}
+
+let scrollUpdateFrame = 0;
+
+function updateScrollState() {
+    scrollUpdateFrame = 0;
+    updateHeaderState();
+    updatePinnedCtas();
+}
+
+function scheduleScrollUpdate() {
+    if (!scrollUpdateFrame) {
+        scrollUpdateFrame = window.requestAnimationFrame(updateScrollState);
+    }
+}
+
+function syncPinnedCtaMode() {
+    const enabled = !prefersReducedMotion && pinnedCtaDesktop.matches && pinnedCtaSections.length > 0;
+    document.documentElement.classList.toggle('has-pinned-cta', enabled);
+
+    if (!enabled) {
+        pinnedCtaSections.forEach(resetPinnedCta);
+    }
+
+    scheduleScrollUpdate();
+}
+
+updateHeaderState();
+lenis.on('scroll', scheduleScrollUpdate);
+window.addEventListener('scroll', scheduleScrollUpdate, { passive: true });
+window.addEventListener('resize', () => {
+    scheduleScrollUpdate();
+    syncPinnedCtaMode();
+}, { passive: true });
+pinnedCtaDesktop.addEventListener('change', syncPinnedCtaMode);
+syncPinnedCtaMode();
 
 const slider = document.querySelector('[data-slider]');
 if (slider) {
@@ -127,7 +207,7 @@ if (particleCanvas instanceof HTMLCanvasElement && !prefersReducedMotion) {
             return;
         }
 
-        const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+        const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.25);
         viewportWidth = window.innerWidth;
         viewportHeight = window.innerHeight;
         particleCanvas.width = Math.round(viewportWidth * pixelRatio);
@@ -136,7 +216,7 @@ if (particleCanvas instanceof HTMLCanvasElement && !prefersReducedMotion) {
         particleCanvas.style.height = `${viewportHeight}px`;
         context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
-        const particleCount = Math.min(40, Math.max(14, Math.round((viewportWidth * viewportHeight) / 32000)));
+        const particleCount = Math.min(28, Math.max(12, Math.round((viewportWidth * viewportHeight) / 42000)));
         particles = Array.from({ length: particleCount }, () => ({
             x: Math.random() * viewportWidth,
             y: Math.random() * viewportHeight,

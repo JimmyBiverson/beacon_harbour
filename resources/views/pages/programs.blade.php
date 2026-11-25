@@ -33,13 +33,11 @@
     </div>
 </section>
 
-<section class="closing-cta">
-    <div class="wrap closing-cta-inner reveal">
-        <div>
-            <span class="eyebrow">Get Involved</span>
-            <h2>Help us build a stronger harbor for Boston's youth.</h2>
-            <p>Every young person deserves a harbor — and a light to steer by.</p>
-        </div>
-        <a class="pill donate-cta" href="{{ route('contact', ['topic' => 'Youth programs']) }}#message">Partner With Us <b>↗</b></a>
-    </div>
-</section>
+<x-pinned-cta
+    eyebrow="Get Involved"
+    title="Help us build a stronger harbor for Boston's youth."
+    copy="Every young person deserves a harbor — and a light to steer by."
+    href="{{ route('contact', ['topic' => 'Youth programs']) }}#message"
+    label="Partner With Us"
+    image="learning"
+/>

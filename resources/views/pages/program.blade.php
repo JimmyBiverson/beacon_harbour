@@ -30,13 +30,11 @@
         </div>
     </section>
 
-    <section class="wrap section-block">
-        <div class="closing-cta-inner detail-cta reveal">
-            <div>
-                <span class="eyebrow">Want to know more?</span>
-                <h2>Talk with Beacon Harbor about this program.</h2>
-            </div>
-            <a class="pill donate-cta" href="{{ route('contact', ['topic' => 'Youth programs']) }}#message">Ask a question <b>↗</b></a>
-        </div>
-    </section>
+    <x-pinned-cta
+        eyebrow="Want to know more?"
+        title="Talk with Beacon Harbor about this program."
+        href="{{ route('contact', ['topic' => 'Youth programs']) }}#message"
+        label="Ask a question"
+        :image="$entry[2]"
+    />
 </div>

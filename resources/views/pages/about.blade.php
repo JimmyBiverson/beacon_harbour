@@ -162,16 +162,11 @@
     </div>
 </section>
 
-<section class="closing-cta">
-    <div class="wrap closing-cta-inner reveal">
-        <div>
-            <span class="eyebrow">Get Involved</span>
-            <h2>Help us build a stronger harbor for Greater Boston's youth.</h2>
-            <p>Every young person deserves a harbor — and a light to steer by.</p>
-        </div>
-        <div class="actions">
-            <a class="pill donate-cta" href="{{ route('involvement') }}">Get Involved <b>↗</b></a>
-            <a class="textlink" href="{{ route('community') }}">Our Focus Area →</a>
-        </div>
-    </div>
-</section>
+<x-pinned-cta
+    eyebrow="Get Involved"
+    title="Help us build a stronger harbor for Greater Boston's youth."
+    copy="Every young person deserves a harbor — and a light to steer by."
+    href="{{ route('involvement') }}"
+    label="Get Involved"
+    image="community"
+/>

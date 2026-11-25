@@ -40,13 +40,11 @@
     </div>
 </section>
 
-<section class="closing-cta">
-    <div class="wrap closing-cta-inner reveal">
-        <div>
-            <span class="eyebrow">Have a project idea?</span>
-            <h2>Bring us a question your community is working through.</h2>
-            <p>We welcome thoughtful introductions from schools, youth organizations, caregivers and other community partners.</p>
-        </div>
-        <a class="pill donate-cta" href="{{ route('contact', ['topic' => 'Partnership']) }}#message">Start a conversation <b>↗</b></a>
-    </div>
-</section>
+<x-pinned-cta
+    eyebrow="Have a project idea?"
+    title="Bring us a question your community is working through."
+    copy="We welcome thoughtful introductions from schools, youth organizations, caregivers and other community partners."
+    href="{{ route('contact', ['topic' => 'Partnership']) }}#message"
+    label="Start a conversation"
+    image="pathways"
+/>

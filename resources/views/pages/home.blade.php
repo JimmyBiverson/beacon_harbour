@@ -121,16 +121,11 @@
     <x-cards type="article" :limit="3"/>
 </section>
 
-<section class="closing-cta">
-    <div class="wrap closing-cta-inner reveal">
-        <div>
-            <span class="eyebrow">Get Involved</span>
-            <h2>Join us in empowering young people.</h2>
-            <p>Whether you volunteer, partner, or support our mission, you can help build brighter futures.</p>
-        </div>
-        <div class="actions">
-            <a class="pill donate-cta" href="{{ route('involvement') }}">Get Involved <b>↗</b></a>
-            <a class="textlink" href="{{ route('community') }}">Where We Work →</a>
-        </div>
-    </div>
-</section>
+<x-pinned-cta
+    eyebrow="Get Involved"
+    title="Join us in empowering young people."
+    copy="Whether you volunteer, partner, or support our mission, you can help build brighter futures."
+    href="{{ route('involvement') }}"
+    label="Get Involved"
+    image="friends"
+/>
